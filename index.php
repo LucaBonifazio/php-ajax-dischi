@@ -26,7 +26,7 @@ include_once __DIR__ . '/db/data.php';
                 alt="logo"
                 class="img-fluid"
               >
-              <!-- <div>
+              <div>
                 <label for="select-genres">
                   <select
                     id="select-genres"
@@ -37,16 +37,14 @@ include_once __DIR__ . '/db/data.php';
                     <option value="all">
                       All
                     </option>
-                    <option
-                      v-for="genre in genresList"
-                      :key="genre"
-                      :value="genre"
-                    >
-                      {{ genre }}
+                      <?php foreach ($arrAlbums as $key => $value) {?>
+                        <option value=""><?= $key = $value['genre'] ?></option>
+                    <?  } ?>
+                      <?= $value['genre'] ?>
                     </option>
                   </select>
                 </label>
-              </div> -->
+              </div>
             </div>
         </header>
         <main class="d-flex p-1">
