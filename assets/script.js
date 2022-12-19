@@ -4,9 +4,9 @@ new Vue({
 		genres: [],
 		albums: [],
 		genre: 'all',
-		urlAlbums: '/../api/albums.php',
-		// urlAlbums: location.href + '/../api/albums.php',
-		urlGenres: '/../api/genres.php',
+		urlAlbums: 'api/albums.php',
+		// urlAlbums: location.href + 'api/albums.php',
+		urlGenres: 'api/genres.php',
 	},
 	created() {
 		axios.get(this.urlAlbums)

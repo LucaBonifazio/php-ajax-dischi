@@ -1,5 +1,17 @@
 <?php
 include_once __DIR__ . '/db/data.php';
+
+$arr_genres = [];
+
+foreach ($arr_albums as $album) {
+  if (!in_array($album['genre'], $arr_genres)) {
+    $arr_genres[] = $album['genre'];
+	}
+}
+
+// if (($_GET['genres']) != 'all') {
+//   $value = $_GET['genres'];
+// }
 ?>
 
 <!DOCTYPE html>
@@ -35,11 +47,11 @@ include_once __DIR__ . '/db/data.php';
                     <option value="all">
                       All
                     </option>
-                      <?php foreach ($arr_filtered['genre'] as $value) {?>
-                        <option<?= $value = "['genre']" ?>></option>
+                      <?php foreach ($arr_genres as $value) {?>
+                        <option value = "<?= $value; ?>">
+                          <?= $value ?>
+                        </option>
                     <?  } ?>
-                      <?= $value['genre'] ?>
-                    </option>
                   </select>
                 </label>
               </div>
