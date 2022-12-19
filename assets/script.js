@@ -1,14 +1,27 @@
 new Vue({
 	el: '#app',
 	data: {
+		genres: [],
 		albums: [],
-		urlApi: location.href + 'api.php',
+		genre: 'all',
+		urlAlbums: '/../api/albums.php',
+		// urlAlbums: location.href + '/../api/albums.php',
+		urlGenres: '/../api/genres.php',
 	},
 	created() {
-		axios.get(this.urlApi)
-			.then(axiosResponse => {
-				console.log(axiosResponse);
-				this.albums = axiosResponse.data
-			});
+		axios.get(this.urlAlbums)
+			.then(axiosResponse => this.albums = axiosResponse.data);
+		axios.get(this.urlGenres)
+			.then(axiosResponse => this.genres = axiosResponse.data);
+	},
+	methods: {
+		getList() {
+			axios.get(this.urlAlbums, {
+				params: {
+				  genre: this.genre
+				}
+			 })
+				.then(axiosResponse => this.albums = axiosResponse.data)
+		}
 	}
 })

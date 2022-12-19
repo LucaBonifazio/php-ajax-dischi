@@ -21,8 +21,7 @@ include_once __DIR__ . '/db/data.php';
     <div id="app">
         <header>
             <div class="top_bar d-flex justify-content-between align-items-center px-4">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/2048px-Spotify_logo_without_text.svg.png"
+              <img               src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/2048px-Spotify_logo_without_text.svg.png"
                 alt="logo"
                 class="img-fluid"
               >
@@ -30,15 +29,14 @@ include_once __DIR__ . '/db/data.php';
                 <label for="select-genres">
                   <select
                     id="select-genres"
-                    v-model="genreFilter"
+                    value="genre"
                     name="genre"
-                    @change="genreChange"
                   >
                     <option value="all">
                       All
                     </option>
-                      <?php foreach ($arrAlbums as $key => $value) {?>
-                        <option value=""><?= $key = $value['genre'] ?></option>
+                      <?php foreach ($arr_filtered['genre'] as $value) {?>
+                        <option<?= $value = "['genre']" ?>></option>
                     <?  } ?>
                       <?= $value['genre'] ?>
                     </option>
@@ -49,7 +47,7 @@ include_once __DIR__ . '/db/data.php';
         </header>
         <main class="d-flex p-1">
             <div class="row row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-3 container">
-            <?php foreach ($arrAlbums as $value) { ?>
+            <?php foreach ($arr_albums as $value) { ?>
                 <div class="col">
                     <div class="artist_card text-center">
                         <img

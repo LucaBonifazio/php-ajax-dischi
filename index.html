@@ -22,32 +22,19 @@
                 alt="logo"
                 class="img-fluid"
               >
-              <!-- <div>
-                <label for="select-genres">
-                  <select
-                    id="select-genres"
-                    v-model="genreFilter"
-                    name="genre"
-                    @change="genreChange"
-                  >
-                    <option value="all">
-                      All
-                    </option>
-                    <option
-                      v-for="genre in genresList"
-                      :key="genre"
-                      :value="genre"
-                    >
-                      {{ genre }}
-                    </option>
+              <div>
+                <label for="genre">
+                  <select @change="getList" name="genre" v-model="genre">
+                    <option value="all">All</option>
+                    <option v-for="genre in genres" :key="genre" :value="genre">{{ genre }}</option>
                   </select>
                 </label>
-              </div> -->
+              </div>
             </div>
         </header>
         <main class="d-flex p-1">
             <div class="row row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-3 container">
-                <div class="col" v-for="album in albums" :key="album.i" >
+                <div class="col" v-for="album in albums" :key="album.title" >
                     <div class="artist_card text-center">
                         <img
                         :src="album.poster"
